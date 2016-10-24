@@ -46,34 +46,6 @@ __PACKAGE__->config(
     # Disable deprecated behavior needed by old applications
     disable_component_resolution_regex_fallback => 1,
     enable_catalyst_header => 1, # Send X-Catalyst header
-    'Plugin::Authentication' => {
-         default_realm => "ldap",
-         'realms' => {
-             ldap => {
-                 credential => {
-                     class          => "Password",
-                     password_field => "password",
-                     password_type  => "self_check",
-                 },
-                 store => {
-                     binddn              => "CN=Lucas Pereira,OU=USUARIOS,OU=UN-SUPORTE,OU=DIRETORIA DE TECNOLOGIA DA INFORMACAO,OU=DIRECAO GERAL,OU=SUB-ADMINISTRATIVA,OU=DEFENSORIA PUBLICA DO RS,DC=defpub,DC=local",
-                     bindpw              => "4a6f736965",
-                     class               => "LDAP",
-                     ldap_server         => "srvdpead01",
-                     ldap_server_options => {
-                         timeout => 30,
-                         onerror => 'warn',
-                     },
-                     user_basedn         => "DC=defpub,DC=local",
-                     user_field          => "samaccountname",
-                     user_filter         => "(&(objectClass=user)(sAMAccountName=%s))",
-                     user_scope          => "sub", # or "sub" for Active Directory
-                     user_search_options => { deref => "always" },
-                     user_results_filter => sub { return shift->pop_entry },
-                 },
-             },
-         },
-   },
   'CatalystX::DebugFilter' => {
         Request => { params => [ 'password' ] },
     },

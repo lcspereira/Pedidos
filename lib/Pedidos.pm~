@@ -25,7 +25,7 @@ use Catalyst qw/
     Session::Store::FastMmap
     Session::State::Cookie
     StackTrace
-
+    Authentication
 /;
 
 extends 'Catalyst';
