@@ -1,0 +1,475 @@
+/*====================== CABECALHO ======================*/
+
+.cabecalho {
+	background-color: rgba(0,0,0,.6);
+	height: 30px;
+	border-bottom-style: solid;
+	border-color: rgb(30,30,30);
+	border-width: 2px;
+}
+
+h6 {
+	float: right;
+	text-shadow: 0px 0px 1px #000;
+	margin-right: 10px;
+	margin-top: 6px;
+	color: rgb(220,220,220);
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+
+
+/*====================== ICONE SAIR ======================*/
+
+.saiu {
+	cursor: pointer;
+}
+
+.sair {
+	width: 22px;
+	float: right;
+	margin-top: 4px;
+	margin-right: 5px;
+}
+
+.sai {
+	width: 22px;
+	float: right;
+	margin-top: 4px;
+	margin-right: 5px;
+	display: none;
+}
+
+.saiu:hover .sair{
+	display: none;
+}
+
+.saiu:hover .sai{
+	display: block;
+}
+
+
+
+/*====================== PEDIDOS ======================*/
+
+.tabelinha {
+	background: linear-gradient(to bottom, rgb(247,247,247), rgb(235,235,235)) no-repeat fixed 100% 100%;
+	width: 50%;
+	margin-left: 25%;
+	text-align: center;
+	margin-top: 40px;
+	box-shadow: 0px 0px 6px rgb(35,35,35);
+	border-radius: 1px;
+	padding-top: 15px;
+}
+
+.minhaTabela {
+	border-collapse: collapse;
+	width: 90%;
+	margin-left: 5%;
+	word-wrap: break-word;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.minhaTabela th {
+	border-bottom-style: solid;
+	border-color: rgb(40,40,40);
+	color: rgb(40,40,40);
+	border-width: 3px;
+	padding: 5px;
+	text-transform: uppercase;
+	font-size: 1.2em;
+}
+
+.minhaTabela td {
+	font-family:"Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
+	border-color: rgb(40,40,40);
+	border-width: 2px;
+	border-bottom-style: solid;
+	padding: 4px;
+	color: rgb(55,95,55);
+	font-size: 0.95em;
+	color: rgb(65,65,65);
+}
+
+.num {
+	width: 10%;
+}
+
+.sol {
+	width: 27.5%
+}
+
+.com {
+	width: 27.5%
+}
+
+.desc {
+	width: 35%;
+}
+
+h3 {
+	font-size: 1.2em;
+	text-transform: uppercase;
+	color: rgb(50,50,50);
+	letter-spacing: 0.5px;
+	color: rgb(55,95,55);
+}
+
+
+
+/*====================== SUBLINHADO ======================*/
+.click_detalhes {
+	cursor: pointer;
+}
+
+.sublinhado {
+	height: 2px; 
+	width: 0px; 
+	background-color: rgb(55,95,55);
+	position: relative; 
+	left: 50%; 
+	right: 50%; 
+	top: 0px;
+	transition: width 0.5s, left 0.5s, right 0.5s; 
+}
+
+.check_list:hover .sublinhado {
+	width: 100%; 
+	left: 0%; 
+}
+
+a {
+	text-decoration: none;
+	color: rgb(65,65,65);
+}
+
+
+
+/*====================== BOTAO ======================*/
+.novo_item {
+	background-color: rgb(40,40,40);
+	color: rgb(230,230,230);
+	text-transform: uppercase;
+	padding: 8px;
+	width: 20%;
+	margin-bottom: 12px;
+	margin-top: 10px;
+	border-radius: 2px;
+	cursor: pointer;
+	transition: transform 1s, box-shadow 1s;
+}
+
+.novo_item:hover {
+	transform: scale(1.1);
+	box-shadow: 1px 2px 2px #000;
+}
+
+
+
+/*====================== MODAL ======================*/
+.black-modal {
+	background-color: rgba(0,0,0,.6);
+	width: 100%; 
+	float: left;  
+	text-align: center;
+	height: 100%;
+	overflow: auto;
+	top: 0;
+	left: 0;
+	position: fixed;
+}
+
+#novo_item {
+	display: none;
+}
+
+#detalhes {
+	display: none;
+}
+
+#atender_pedido {
+  display: none;
+}
+
+.modal {
+	width: 40%;
+	position: absolute;
+	left: 30%;
+	border-radius: 3px;
+	background-color: rgb(230,230,230);
+	box-shadow: 0px 0px 15px rgb(60,60,60);
+	top: 70px;
+	margin-bottom: 10px;
+}
+
+.fechar {
+	position: absolute;
+	right: 5px;
+	font-weight: 800;
+	font-size: 2.5em;
+	top: -15px;
+	color: rgb(235, 90, 90);
+	cursor: pointer;
+}
+
+.fechar:hover {
+	color: rgb(255, 90, 90);
+}
+
+h2 {
+	font-size: 1.8em;
+	text-transform: uppercase;
+	color: rgb(50,50,50);
+	margin-top: 5px;
+	width: 80%;
+	position: relative;
+	left: 10%;
+	border-color: rgb(50,50,50);
+	border-bottom-style: solid;
+	margin-bottom: 40px;
+	border-radius: 3px;
+	line-height: 45px;
+}
+
+
+
+/*====================== CADASTRO PEDIDO ( MODAL ) ======================*/
+.cadastroPedido {
+	width: 90%;
+	margin-left: 10%;
+}
+
+.campo {
+	padding: 3px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(150,150,150);
+	color: rgb(50,50,50);
+	letter-spacing: 0.5px; 
+	transition: box-shadow 0.5s;
+}
+
+.cadastroPedido td {
+	padding: 5px;
+}
+
+.campo_n {
+	width: 50%;
+	float: left;
+}
+
+.campo_r {
+	width: 80%;
+	float: left;
+}
+
+.text {
+	width: 80%;
+	height: 100px;
+	float: left;
+	resize: none;
+}
+
+.td_um {
+	width: 20%;
+}
+
+.td_dois {
+	width: 80%;
+}
+
+.campo:hover {
+	box-shadow: 0px 0px 6px rgb(55,95,55);
+}
+
+label {
+	text-transform: uppercase;
+	color: rgb(50,50,50);
+}
+
+.btn {
+	background-color: rgb(50,50,50);
+	color: rgb(230,230,230);
+	text-transform: uppercase;
+	padding: 10px;
+	border-radius: 2px;
+	cursor: pointer;
+	transition: transform 0.5s, background-color 0.5s;
+}
+
+.btn:hover {
+	transform: scale(0.95);
+	background-color: rgb(55,95,55);
+}
+
+.limpar {
+	width: 70%;
+	float: right;
+	position: relative;
+	right: 32%;
+}
+
+.salvar {
+	width: 70%;
+	float: left;
+}
+
+
+
+
+/*====================== TABELA PEDIDOS ( MODAL ) ======================*/
+#tabelaPedidos {
+	width: 70%;
+	margin-left: 15%;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+#tabelaPedidos th {
+	text-transform: uppercase;
+}
+
+.codigo {
+	width: 25%;
+}
+.item {
+	width: 60%;
+}
+.quantidade {
+	width: 15%;
+}
+
+.enviar_p {
+	background-color: rgb(50,50,50);
+	color: rgb(230,230,230);
+	text-transform: uppercase;
+	padding: 10px;
+	width: 20%;
+	border-radius: 2px;
+	cursor: pointer;
+	margin-bottom: 30px;
+	transition: border-radius 0.8s, background-color 0.8s, width 0.8s;
+}
+
+.enviar_p:hover {
+	border-radius: 80px 2px 80px 2px;
+	background-color: rgb(55,95,55);
+	width: 30%;
+}
+
+
+/*====================== DETALHES MODAL ( MODAL ) ======================*/
+.tabelaDetalhe {
+	border-collapse: collapse;
+	width: 90%;
+	margin-left: 5%;
+	word-wrap: break-word;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.tabelaDetalhe th {
+	color: rgb(40,40,40);
+	padding: 5px;
+	text-transform: uppercase;
+	font-size: 1em;
+}
+
+.tabelaDetalhe td {
+	font-family:"Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
+	padding: 4px;
+	font-size: 0.95em;
+	color: rgb(65,65,65);
+}
+
+.rolagem {
+	height: 150px; 
+	overflow:auto;
+	width: 90%;
+	position: relative;
+	left: 5%;
+	margin-bottom: 20px;
+	border-radius: 2px;
+	border-style: solid;
+	border-width: 4.5px;
+	border-color: rgb(70,70,70);
+	background-color: rgb(240,240,240);
+}
+
+#detalhes .titulo {
+	font-size: 1.3em;
+	text-transform: uppercase;
+	color: rgb(50,50,50);
+	width: 50%;
+	position: relative;
+	left: 25%;
+	border-color: rgb(50,50,50);
+	border-bottom-style: solid;
+	border-top-style: solid;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	line-height: 35px;
+}
+
+.minhaTabelaDetalhes {
+	border-collapse: collapse;
+	width: 90%;
+	margin-left: 5%;
+	word-wrap: break-word;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+.minhaTabelaDetalhes  th {
+	border-bottom-style: solid;
+	border-color: rgb(40,40,40);
+	color: rgb(40,40,40);
+	border-width: 3px;
+	padding: 5px;
+	text-transform: uppercase;
+	font-size: 1em;
+}
+
+.minhaTabelaDetalhes  td {
+	font-family:"Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
+	border-color: rgb(40,40,40);
+	border-width: 2px;
+	border-bottom-style: solid;
+	padding: 4px;
+	color: rgb(55,95,55);
+	font-size: 0.95em;
+	color: rgb(65,65,65);
+}
+
+.iguais {
+	width: 33.33333333333333%;
+}
+
+.ajuste_btn_novo_item {
+	width: 40%;
+	padding: 10px;
+}
+
+/*====================== ATENDER PEDIDO ======================*/
+
+.salvar_2 {
+	width: 40%;
+}
+
+.limpar_2 {
+	width: 55%;
+}
+
+.campo_p{
+	width: 50%;
+}
+
+.add {
+	cursor: pointer;
+}
+
+#origem {
+	margin-top: 20px;
+}

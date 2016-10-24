@@ -1,0 +1,203 @@
+<!-- #################### PEDIDOS #################### -->  
+<section class="container">
+    <div class="tabelinha">
+        <table class="minhaTabela">
+            <tr>
+                <th class="num">Número</th>
+                <th class="sol">Solicitante</th>
+                <th class="com">Comarca / Setor</th>
+                <th class="desc">Observação</th>
+            </tr>
+            [% FOR pedido IN pedidos %]
+                <tr>
+                  
+                    <td class="click_detalhes">
+                       <div class="check_list">
+                          [% pedido.id %]     
+                          <div class="sublinhado"></div>
+                       </div>
+                    </td>
+                    <td>[% pedido.solicitante %]</td>
+                    <td>[% pedido.comarca_setor.descr %]</td>
+                    <td>[% pedido.obs %]</td>
+                 </tr>
+          [% END %] 
+        </table>
+        <h3>Pedidos: [% pedidos.num_pedidos %]</h3><br>
+        <button class="novo_item" id="abrir_item">Novo item<button>
+    </div>
+</section>
+
+<div class="black-modal" id="novo_item">
+    <div class="modal">
+
+        <span class="fechar" id="fechar_item">x</span>
+        <h2>Novo Item</h2>
+
+        <form id="cadastroItem" method="POST">
+            <table class="cadastroPedido">
+                <tr>
+                    <td class="td_um"><label>Código: </label></td>
+                    <td class="td_dois"><input name="codigo" type="text" class="campo campo_n" required="required" autofocus="autofocus" /></td>
+                </tr>
+
+                <tr>
+                    <td class="td_um"><label>Resumo: </label></td>
+                    <td class="td_dois"><input type="text" name="resumo" class="campo campo_r" required="required"/></td>
+                </tr>
+
+                <tr>
+                    <td class="td_um"><label>Descrição: </label></td>
+                    <td class="td_dois"><textarea name="descricao" required="required" class="campo text" wrap/></textarea></td>
+                </tr>
+
+                <tr>
+                    <td class="td_um"><label>Quantidade: </label></td>
+                    <td class="td_dois"><input type="number" name="quantidade" class="campo campo_n" required="required"/></textarea></td>
+                </tr>
+            </table>
+            <br>
+            <table class="cadastroPedido">
+                <tr>
+                <td><input type="submit" class="btn salvar" value="Salvar" id="salvar"/></td>
+                <td><button class="btn limpar" id="limpar">Limpar</button></td>
+                </tr>
+            </table>
+            
+        </form>
+    </div>
+</div>
+
+ <div class="black-modal" id="detalhes">
+      <div class="modal">
+
+          <span class="fechar" id="fechar_detalhes">x</span>
+          <h2>Detalhes</h2>
+
+           <table class="tabelaDetalhe">
+              <tr>
+                  <th>Número: </th>
+                  <td></td>
+              </tr>
+              <tr>
+                  <th>Solicitante: </th>
+                  <td></td>
+              </tr>
+              <tr>
+                  <th>Comarca: </th>
+                  <td></td>
+              </tr>
+              <tr>
+                  <th>Descrição: </th>
+                  <td></td>
+              </tr>
+              </table>
+              <h4 class="titulo">Itens do pedido</h4>
+              <div class="rolagem"><table id="itensPedidoTable" class="minhaTabelaDetalhes">
+               <tr>
+                  <th class="iguais">Código</th>
+                  <th class="iguais">Item</th>
+                  <th class="iguais">Quantidade</th>
+              </tr>
+              <tr>
+                  <td> 213213</td>
+                  <td>Aquario</td>
+                  <td>5</td>
+              </tr>
+              <tr>
+                  <td> 213213</td>
+                  <td>Aquario</td>
+                  <td>5</td>
+              </tr>
+              <tr>
+                  <td> 213213</td>
+                  <td>Aquario</td>
+                  <td>5</td>
+              </tr>
+              <tr>
+                  <td> 213213</td>
+                  <td>Aquario</td>
+                  <td>5</td>
+              </tr>
+              <tr>
+                  <td> 213213</td>
+                  <td>Aquario</td>
+                  <td>5</td>
+              </tr>
+              </table></div>
+              <button class="novo_item ajuste_btn_novo_item">Atender Pedido</button>
+      </div>
+  </div>
+
+<div class="black-modal" id="atender_pedido">
+    <div class="modal">
+
+        <span class="fechar" id="fechar_atendimento">x</span>
+        <h2>Atendimento do pedido</h2>
+        <form id="atendPedidoForm" method="POST">
+                [% FOREACH i IN [ 0..item_pedido_count ] %]
+                    <div id="itemFields[]">
+                        <tr>
+                            <td class="td_um_atend"><label>Item: </label></td>
+                            <td class="td_dois_atend"><input name="itemField[]" type="text" id="itemField[]" class="campo campo_i" required="required" autofocus="autofocus" /></td>
+                            <td class="td_um_atend"><label>Patrimônio: </label></td>
+                            <td class="td_dois_atend"><input type="text" name="patrimonioField[]" id="patrimonioField[]" class="campo campo_p" required="required"/> <span class="add" onclick="duplicarCampo();">+</span></td>
+                        </tr>
+                    </div>
+                [% END %]
+
+            <table class="cadastroPedido">
+                <tr>
+                <td class="td_meio"><input type="submit" class="btn salvar_2" value="Finalizar" id="salvar"/></td>
+                <td  class="td_meio"><button class="btn limpar_2" id="limpar">Limpar</button></td>
+                </tr>
+            </table>
+            
+            <input type="hidden" id="numFields" value="[% item_pedido_count %]"/>
+        </form>
+    </div>
+</div>
+
+
+
+      <script>
+            $("#abrir_item").click(function(){
+              $("#novo_item").show();
+            });
+            $("#fechar_item").click(function(){
+              $("#novo_item").hide();
+            });
+        </script>
+
+        <script>
+            $(".click_detalhes").click(function(){
+                $("#detalhes").show();
+            });
+            $("#fechar_detalhes").click(function(){
+                $("#detalhes").hide();
+            });
+        </script>
+
+        <script>
+         $(".ajuste_btn_novo_item").click(function(){
+                $("#atender_pedido").show();
+            });
+            $("#fechar_atendimento").click(function(){
+                $("#atender_pedido").hide();
+            });
+        </script>
+		
+		<script>
+        function duplicarCampo() {
+            var newdiv = document.getElementById("itemFields").clone;
+            document.getElementById("atendPedidoForm").appendChild(newdiv);
+        }
+        function getDetails () {
+            $.ajax ({
+                method: "GET",
+                url: ""
+            });
+        }
+		</script>
+
+

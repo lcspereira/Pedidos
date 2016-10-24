@@ -1,0 +1,12 @@
+<!-- BEGIN site/header -->
+<h1 class="title">[% template.title or site.title %]</h1>
+<header class="container">
+            <div class="cabecalho">
+                [% IF c.user %]
+                    <div class="saiu"><img src="../static/images/sair.svg" id="sair"/> <img src="../static/images/sai.svg" id="sai"/><div>
+                    <h6>Usuário: [% c.user.name %]</h6>
+                [% END %]
+            </div>
+        </header>
+
+<!-- END site/header -->

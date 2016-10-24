@@ -1,0 +1,126 @@
+/*====================== LOGIN ======================*/
+
+.caixaLogin {
+	width: 36%;
+	background: linear-gradient(to bottom, rgb(247,247,247), rgb(235,235,235)) no-repeat fixed 100% 100%;
+	background-color: #fff;
+	position: relative;
+	left: 32%;
+	margin-top: 100px;
+	box-shadow: 0px 0px 15px rgb(30,30,30);
+	padding: 30px;
+}
+
+.tituloLogin {
+	font-size: 1.8em;
+	font-family: 'Berlin', Sans-Serif;
+	margin-bottom: 20px;
+	border-bottom-style: solid;
+	border-color: rgb(50,50,50);
+	color: rgb(50,50,50);
+	border-radius: 3px;
+	line-height: 45px;
+}
+
+form {
+	text-align: center;
+}
+
+.campo {
+	padding: 14px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(210,210,210);
+	box-shadow: 0px 0px 3px rgb(210,210,210);
+	width: 100%;
+	margin-top: 15px;
+	color: rgb(50,50,50);
+	letter-spacing: 0.5px; 
+	transition: box-shadow 0.5s;
+}
+
+.campo:hover {
+	box-shadow: 0px 0px 6px rgb(55,95,55);
+}
+
+#logar {
+	text-transform: uppercase;
+	background-color: rgb(55,87,55);
+	padding: 21px;
+	font-weight: 700;
+	margin-top: 48px; 
+	margin-bottom: 10px; 
+	width: 100%; 
+	color: #fff;
+	letter-spacing: 1px; 
+	cursor: pointer;
+	transition: background-color 0.5s, box-shadow 0.5s;
+}
+
+#logar:hover {
+	background-color: rgb(55,95,55);
+	box-shadow: 0px 0px 3px rgb(70,70,70);
+}
+
+
+/*====================== RESPONSIVO ESBOÇO ======================*/
+
+
+
+
+@media screen and (max-width: 1450px) {
+
+	.tituloLogin {
+		font-size: 1.5em;
+	}
+	
+}
+
+@media screen and (max-width: 1250px) {
+
+	.caixaLogin {
+		width: 45%;
+		left: 27.5%;
+	}
+	
+}
+
+@media screen and (max-width: 1180px) {
+
+	.caixaLogin {
+		width: 42%;
+		left: 29%;
+	}
+	
+}
+
+@media screen and (max-width: 1060px) {
+
+	.caixaLogin {
+		width: 50%;
+		left: 25%;
+	}
+	
+}
+
+@media screen and (max-width: 900px) {
+
+	.caixaLogin {
+		width: 55%;
+		left: 22.5%;
+	}
+	
+}
+
+@media screen and (max-width: 850px) {
+
+	.tituloLogin {
+		font-size: 1.3em;
+	}
+
+	.caixaLogin {
+		width: 60%;
+		left: 20%;
+	}
+	
+}

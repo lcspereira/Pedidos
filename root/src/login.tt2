@@ -1,0 +1,13 @@
+<section class="container">
+    <div class="caixaLogin radius">
+        <h1 class="tituloLogin"> Pedidos de materiais permanente </h1>
+        <form method="POST" action="[% action %]">
+            <input type="text" name="login" id="login" class="campo radius" placeholder="Digite a matricula" required autofocus/>
+            <br/>
+            <input type="password" name="senha" id="senha" class="campo radius" placeholder="Digite a senha" required/>
+            <br/>
+            <input type="submit" name="loginButton" id="loginButton" class="radius loginButton" value="Login"/>
+        </form>
+    </div>
+</section>
+

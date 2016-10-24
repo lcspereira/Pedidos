@@ -1,0 +1,133 @@
+  <section class="container">
+      <div class="tabelinha">
+          <table class="minhaTabela">
+              <tr>
+                  <th class="num">Número</th>
+                  <th class="desc">Descrição</th>
+                  <th class="stat">Status</th>
+              </tr>
+              [% FOR pedido IN pedidos %]
+                  <tr>
+
+                      <td>
+                          <div class="check_list">
+                              <a href="#">[% pedido.id %] </a>     
+                              <div class="sublinhado"></div>
+                          </div>
+                      </td>
+
+                      <td>[% pedido.obs %]</td>
+                      <td id="verde">[% pedido.status %]</td>
+                  </tr>
+              [% END %]
+         </table>
+         <button class="novo_pedido">Novo pedido</button>
+      </div>
+  </section>
+
+
+  <div class="black-modal">
+      <div class="modal">
+
+          <span class="fechar">x</span>
+          <h2>Novo Pedido</h2>
+            <form id="dadosPedidoForm">
+              <table class="cadastroPedido">
+                  <tr>
+                      <td class="td_um"><label>Solicitante: </label></td>
+                      <td class="td_um">
+                          <input type="text" name="solicitante" class="campo" required="required"/>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="td_apenas"><label>Comarca / Setor: </label></td>
+                      <td class="td_dois">
+                          <select id="comarcaSetorSelect" class="selecao" name="comarcaSetorSelect">
+                              <option value="">-- Comarca ou Setor --</option>
+                              [% FOR comarca_setor IN comarcas_setores %]
+                                  <option value="[% comarca_setor.id %]">[% comarca_setor.descr %]</option>
+                              [% END %]
+                          </select>
+                      </td>                      
+                  </tr>
+              </table>
+              </form>
+              <form id="itemPedidoForm">
+              <table class="cadastroPedido">
+                  <tr>
+                      <td class="td_apenas"><label>Item: </label></td>
+                      <td class="td_dois">
+                          <select id="itensSelect" class="selecao" name="itensSelect">
+                              <option value="">-- Selecione o item --</option>
+                              [% FOR item IN itens %]
+                                  <option value="[% item.id %]">[% item.resumo %]</option>
+                              [% END %]
+                          </select>
+                      </td>                      
+
+                      <td class="td_um"><label>Quantidade: </label></td>
+                      <td class="td_um">
+                          <input type="number" name="quantidade" class="campo" required="required"/>
+                      </td>
+                       <td class="td_um">
+                          <button type="button" class="pedir" value="addItemPedido">Incluir</button>
+                      </td>
+                  </tr>
+              </table>
+          </form>
+
+
+
+          <table id="itensPedidoBodyTable" class="tabelaPedidos">
+              <thead>
+                  <tr>
+                      <th class="codigo">Código</th>
+                      <th class="item">Item</th>
+                      <th class="quantidade">Quantidade</th>
+                  </tr>
+              </thead>
+          <tbody id="itensPedidoBodyTable">
+          </tbody>
+          </table>
+
+          <button class="enviar_p" value="enviarPedido">Enviar Pedido</button>
+      </div>
+  </div>
+
+
+
+<script>
+      function addItemPedido () {
+          $.post("add_item_pedido", $('#itemPedidoForm').serialize(), function (lines) {
+              document.getElementById("itensPedidoBodyTable").innerHTML = lines;
+          }, "html");
+      }
+      
+      function enviarPedido () {
+          var formData = {
+              solicitante: document.getElementById('solicitante').value,
+              comarcaSetor: document.getElementById('comarcaSetorSelect').value
+          };
+
+
+          $.ajax ({
+              method: 'POST',
+              url: "enviar_pedido",
+              data: formData,
+              dataType: 'text',
+              encode: true
+          }).success (function (idPedido) {
+              alert ("Pedido " + idPedido + " cadastrado com sucesso!");
+          }).error (function (msg) {
+              alert (msg);
+          });
+      }
+
+
+      $(".novo_pedido").click(function(){
+        $(".black-modal").show();
+      });
+      $(".fechar").click(function(){
+        $(".black-modal").hide();
+      });
+</script>
